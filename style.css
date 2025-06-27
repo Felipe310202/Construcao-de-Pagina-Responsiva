@@ -1,7 +1,21 @@
 /* --- GERAL E MOBILE (ATÉ 480px) --- */
-/* Esta é a aparência base da página, para telas pequenas. */
+/* Esta base permanece a mesma, garantindo a experiência mobile. */
 
-/* Reseta estilos padrão e define a fonte base */
+:root {
+    /* Paleta de Cores extraída das imagens */
+    --text-dark: #3e3e3e;
+    --text-light: #707070;
+    --accent-yellow: #fadc60;
+    --accent-green: #b4d37c;
+    --accent-teal: #85d2d0;
+    --bg-light-yellow: #fef9e7;
+    --bg-light-green: #f2f7ec;
+    --bg-light-teal: #eef8f8;
+    --bg-white: #ffffff;
+    --border-color: #e0e0e0;
+    --banner-gradient: linear-gradient(90deg, #87d8d7 0%, #00c2c7 100%);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -9,9 +23,9 @@
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    color: #555;
-    background-color: #f4f4f4;
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-light);
+    background-color: #f8f8f8;
 }
 
 .container {
@@ -19,11 +33,11 @@ body {
     margin: 0 auto;
 }
 
-/* --- Cabeçalho (Header) --- */
+/* --- Cabeçalho --- */
 header {
-    background-color: #fff;
-    padding: 15px 0;
-    border-bottom: 1px solid #ddd;
+    background: var(--bg-white);
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-color);
 }
 
 header .container {
@@ -33,155 +47,219 @@ header .container {
 }
 
 .logo {
-    font-weight: bold;
-    font-size: 1.5rem;
-    color: #333;
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: var(--text-dark);
 }
 
-.logo-desktop { display: none; } /* Esconde o logo de desktop no mobile */
-.logo-mobile { display: block; line-height: 1; } /* Mostra o logo de mobile */
+.logo-desktop { display: none; }
+.logo-mobile { display: block; line-height: 1; font-size: 1.5rem; }
 
-.main-nav { display: none; } /* Esconde a navegação principal no mobile */
+.main-nav { display: none; }
 
 .hamburger-icon {
-    display: block; /* Mostra o ícone de hambúrguer */
+    display: block;
     background: none;
     border: none;
-    font-size: 1.8rem;
-    color: #333;
+    font-size: 1.5rem;
+    color: var(--text-dark);
     cursor: pointer;
 }
 
 /* --- Banner --- */
 .banner {
-    background: linear-gradient(to right, #a2e2e1, #00c2c7);
-    color: #fff;
-    padding: 30px 0;
+    background: var(--banner-gradient);
+    color: var(--bg-white);
+    padding: 40px 0;
     text-align: left;
 }
-.banner-title-desktop { display: none; } /* Esconde o título de desktop no mobile */
-.banner-title-mobile { display: block; font-size: 1.8rem; margin-bottom: 10px; }
-.banner p { font-size: 0.9rem; }
+.banner-title-desktop { display: none; }
+.banner-title-mobile {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+.banner p { font-size: 0.9rem; font-weight: 400; }
 
-/* --- Cards de Conteúdo --- */
-.content-cards {
+/* --- Seção de Cards --- */
+.cards-section {
+    background-color: #f8f8f8;
     padding: 20px 0;
 }
 
 .card {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 20px;
+    background: var(--bg-white);
+    padding: 15px;
     margin-bottom: 15px;
-    border: 1px solid #ddd;
-    background-color: #fff;
+    border: 1px solid var(--border-color);
 }
 
-.card-yellow { border-top: 5px solid #ffde7a; }
-.card-green { border-top: 5px solid #a3cc74; }
-.card-teal { border-top: 5px solid #75c4c2; }
+.card-yellow { border-top: 4px solid var(--accent-yellow); }
+.card-green { border-top: 4px solid var(--accent-green); }
+.card-teal { border-top: 4px solid var(--accent-teal); }
 
-.card-content { flex: 3; }
-.card-content h2 { font-size: 1.2rem; margin-bottom: 5px; color: #333; }
-.card-content p { font-size: 0.9rem; }
+.card-text { flex-basis: 70%; }
+.card-text h2 { font-size: 1rem; font-weight: 700; color: var(--text-dark); margin-bottom: 5px; }
+.card-text p { font-size: 0.8rem; line-height: 1.5; }
 
 .card-icon {
-    flex: 1;
+    flex-basis: 30%;
     text-align: right;
-    font-size: 2rem;
-    color: #888;
+    font-size: 1.8rem;
+    color: var(--text-light);
 }
-.card-icon .fa-tablet-alt { display: none; } /* Esconde o ícone do tablet no mobile */
+.card-icon .fa-tablet-alt { display: none; }
 
-/* --- Rodapé (Footer) --- */
+/* --- Rodapé --- */
 footer {
-    background-color: #fff;
-    padding: 15px 0;
-    border-top: 1px solid #ddd;
+    background: var(--bg-white);
+    padding: 20px 0;
+    border-top: 1px solid var(--border-color);
 }
-.footer-nav ul {
+footer ul {
     list-style: none;
     text-align: center;
+    padding: 0;
 }
-.footer-nav li {
-    display: inline;
-    padding: 0 5px;
+footer li {
+    display: inline-block;
     font-size: 0.7rem;
+    padding: 0 4px;
 }
-.footer-nav a {
+footer a {
     text-decoration: none;
-    color: #555;
+    color: var(--text-light);
+    font-weight: 500;
 }
 
 /* --- TABLET (481px a 768px) --- */
-/* Ajustes para telas um pouco maiores. O layout principal permanece o mesmo. */
-
+/* Esta seção permanece a mesma. */
 @media (min-width: 481px) {
     .container {
         width: 85%;
     }
-    .banner-title-mobile { font-size: 2.2rem; }
-    .footer-nav li { padding: 0 8px; font-size: 0.8rem; }
+    .logo-mobile { font-size: 1.8rem; }
+    .banner-title-mobile { font-size: 1.8rem; }
 }
 
-/* --- DESKTOP (ACIMA DE 768px) --- */
-/* Grandes mudanças no layout para aproveitar o espaço da tela. */
-
+/* --- DESKTOP E WIDESCREEN (ACIMA DE 768px) --- */
+/* FOCO AQUI: Ajustes aprimorados para telas largas. */
 @media (min-width: 769px) {
-    /* --- Cabeçalho no Desktop --- */
-    .logo-desktop { display: block; } /* Mostra o logo de desktop */
-    .logo-mobile { display: none; }  /* Esconde o logo de mobile */
+    .container {
+        /* Aumento da largura máxima para preencher melhor telas widescreen. */
+        width: 90%;
+        max-width: 1280px; 
+    }
 
-    .hamburger-icon { display: none; } /* Esconde o ícone de hambúrguer */
+    /* Cabeçalho Desktop */
+    header {
+        /* Mais preenchimento vertical para um cabeçalho mais imponente. */
+        padding: 20px 0;
+    }
+    .logo-desktop { display: block; }
+    .logo-mobile { display: none; }
+    .hamburger-icon { display: none; }
 
-    .main-nav { display: block; } /* Mostra a navegação principal */
+    .main-nav { display: block; }
     .main-nav ul {
-        list-style: none;
         display: flex;
-        gap: 25px; /* Espaço entre os itens do menu */
+        list-style: none;
+        /* Aumento do espaçamento entre os itens de menu. */
+        gap: 35px; 
     }
     .main-nav a {
         text-decoration: none;
-        color: #555;
-        font-weight: bold;
-        font-size: 0.9rem;
+        color: var(--text-light);
+        font-weight: 500;
+        /* Fonte ligeiramente maior para melhor legibilidade. */
+        font-size: 1rem; 
+        transition: color 0.2s;
+    }
+    .main-nav a:hover {
+        color: var(--text-dark);
+    }
+    .main-nav li:not(:first-child)::before {
+        content: '|';
+        color: var(--border-color);
+        margin-right: 35px;
     }
 
-    /* --- Banner no Desktop --- */
+    /* Banner Desktop */
     .banner {
-        padding: 60px 0;
-        text-align: left;
+        /* Padding vertical aumentado para um visual mais dramático. */
+        padding: 100px 0;
     }
-    .banner .container {
-        max-width: 1100px;
+    .banner-title-desktop {
+        display: block;
+        /* Título do banner maior. */
+        font-size: 3.5rem; 
+        font-weight: 700;
+        margin-bottom: 20px;
     }
-    .banner-title-desktop { display: block; font-size: 3rem; margin-bottom: 10px; }
     .banner-title-mobile { display: none; }
-    .banner p { font-size: 1rem; max-width: 60%; }
+    .banner p {
+        font-size: 1.1rem; 
+        max-width: 60%; 
+    }
 
-    /* --- Cards no Desktop --- */
-    .content-cards .container {
+    /* Cards Desktop */
+    .cards-section {
+        /* Mais espaçamento vertical para a seção. */
+        padding: 60px 0;
+        background-color: var(--bg-white);
+    }
+    .cards-section .container {
         display: flex;
-        justify-content: space-between;
-        gap: 20px; /* Espaço entre os cards */
-        max-width: 1100px;
+        /* Gap maior entre os cards. */
+        gap: 30px;
     }
     .card {
-        flex-direction: column; /* Empilha o conteúdo e o ícone verticalmente */
-        align-items: flex-start; /* Alinha o conteúdo à esquerda */
-        flex: 1; /* Faz com que os 3 cards ocupem o mesmo espaço */
-        margin-bottom: 0;
+        flex: 1;
+        flex-direction: column;
+        align-items: flex-start;
+        /* Padding maior dentro dos cards. */
+        padding: 30px; 
+        border: 1px solid var(--border-color);
+        border-top: none;
+        transition: transform 0.3s, box-shadow 0.3s;
     }
+    .card:hover {
+        /* Efeito sutil de elevação no hover para interatividade. */
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    }
+    .card-yellow { background-color: var(--bg-light-yellow); }
+    .card-green { background-color: var(--bg-light-green); }
+    .card-teal { background-color: var(--bg-light-teal); }
+    
+    .card-text h2 {
+        font-size: 1.25rem;
+    }
+    .card-text p {
+        font-size: 0.9rem;
+    }
+
     .card-icon {
         text-align: left;
-        margin-top: 15px;
+        margin-top: 25px;
+        font-size: 2.5rem;
     }
-    .card-icon .fa-tablet-alt { display: inline-block; margin-left: 5px; } /* Mostra o ícone do tablet */
+    .card-icon .fa-tablet-alt { display: inline-block; margin-left: 10px; }
 
-    /* --- Rodapé no Desktop --- */
+    /* Rodapé Desktop */
+    footer {
+        padding: 30px 0;
+    }
     .footer-nav li {
-        padding: 0 15px;
         font-size: 0.9rem;
+        padding: 0 15px;
+    }
+    .footer-nav li:not(:first-child)::before {
+        content: '|';
+        color: var(--border-color);
+        margin-right: 30px;
     }
 }
