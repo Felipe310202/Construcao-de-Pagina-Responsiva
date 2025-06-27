@@ -1,0 +1,187 @@
+/* --- GERAL E MOBILE (ATÉ 480px) --- */
+/* Esta é a aparência base da página, para telas pequenas. */
+
+/* Reseta estilos padrão e define a fonte base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #555;
+    background-color: #f4f4f4;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+/* --- Cabeçalho (Header) --- */
+header {
+    background-color: #fff;
+    padding: 15px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.logo-desktop { display: none; } /* Esconde o logo de desktop no mobile */
+.logo-mobile { display: block; line-height: 1; } /* Mostra o logo de mobile */
+
+.main-nav { display: none; } /* Esconde a navegação principal no mobile */
+
+.hamburger-icon {
+    display: block; /* Mostra o ícone de hambúrguer */
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: #333;
+    cursor: pointer;
+}
+
+/* --- Banner --- */
+.banner {
+    background: linear-gradient(to right, #a2e2e1, #00c2c7);
+    color: #fff;
+    padding: 30px 0;
+    text-align: left;
+}
+.banner-title-desktop { display: none; } /* Esconde o título de desktop no mobile */
+.banner-title-mobile { display: block; font-size: 1.8rem; margin-bottom: 10px; }
+.banner p { font-size: 0.9rem; }
+
+/* --- Cards de Conteúdo --- */
+.content-cards {
+    padding: 20px 0;
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+}
+
+.card-yellow { border-top: 5px solid #ffde7a; }
+.card-green { border-top: 5px solid #a3cc74; }
+.card-teal { border-top: 5px solid #75c4c2; }
+
+.card-content { flex: 3; }
+.card-content h2 { font-size: 1.2rem; margin-bottom: 5px; color: #333; }
+.card-content p { font-size: 0.9rem; }
+
+.card-icon {
+    flex: 1;
+    text-align: right;
+    font-size: 2rem;
+    color: #888;
+}
+.card-icon .fa-tablet-alt { display: none; } /* Esconde o ícone do tablet no mobile */
+
+/* --- Rodapé (Footer) --- */
+footer {
+    background-color: #fff;
+    padding: 15px 0;
+    border-top: 1px solid #ddd;
+}
+.footer-nav ul {
+    list-style: none;
+    text-align: center;
+}
+.footer-nav li {
+    display: inline;
+    padding: 0 5px;
+    font-size: 0.7rem;
+}
+.footer-nav a {
+    text-decoration: none;
+    color: #555;
+}
+
+/* --- TABLET (481px a 768px) --- */
+/* Ajustes para telas um pouco maiores. O layout principal permanece o mesmo. */
+
+@media (min-width: 481px) {
+    .container {
+        width: 85%;
+    }
+    .banner-title-mobile { font-size: 2.2rem; }
+    .footer-nav li { padding: 0 8px; font-size: 0.8rem; }
+}
+
+/* --- DESKTOP (ACIMA DE 768px) --- */
+/* Grandes mudanças no layout para aproveitar o espaço da tela. */
+
+@media (min-width: 769px) {
+    /* --- Cabeçalho no Desktop --- */
+    .logo-desktop { display: block; } /* Mostra o logo de desktop */
+    .logo-mobile { display: none; }  /* Esconde o logo de mobile */
+
+    .hamburger-icon { display: none; } /* Esconde o ícone de hambúrguer */
+
+    .main-nav { display: block; } /* Mostra a navegação principal */
+    .main-nav ul {
+        list-style: none;
+        display: flex;
+        gap: 25px; /* Espaço entre os itens do menu */
+    }
+    .main-nav a {
+        text-decoration: none;
+        color: #555;
+        font-weight: bold;
+        font-size: 0.9rem;
+    }
+
+    /* --- Banner no Desktop --- */
+    .banner {
+        padding: 60px 0;
+        text-align: left;
+    }
+    .banner .container {
+        max-width: 1100px;
+    }
+    .banner-title-desktop { display: block; font-size: 3rem; margin-bottom: 10px; }
+    .banner-title-mobile { display: none; }
+    .banner p { font-size: 1rem; max-width: 60%; }
+
+    /* --- Cards no Desktop --- */
+    .content-cards .container {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px; /* Espaço entre os cards */
+        max-width: 1100px;
+    }
+    .card {
+        flex-direction: column; /* Empilha o conteúdo e o ícone verticalmente */
+        align-items: flex-start; /* Alinha o conteúdo à esquerda */
+        flex: 1; /* Faz com que os 3 cards ocupem o mesmo espaço */
+        margin-bottom: 0;
+    }
+    .card-icon {
+        text-align: left;
+        margin-top: 15px;
+    }
+    .card-icon .fa-tablet-alt { display: inline-block; margin-left: 5px; } /* Mostra o ícone do tablet */
+
+    /* --- Rodapé no Desktop --- */
+    .footer-nav li {
+        padding: 0 15px;
+        font-size: 0.9rem;
+    }
+}
