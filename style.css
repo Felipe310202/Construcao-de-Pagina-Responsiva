@@ -1,5 +1,5 @@
 /* --- GERAL E MOBILE (ATÉ 480px) --- */
-/* Esta base permanece a mesma, garantindo a experiência mobile. */
+/* Estilos base para a versão de celular. */
 
 :root {
     /* Paleta de Cores extraída das imagens */
@@ -8,12 +8,12 @@
     --accent-yellow: #fadc60;
     --accent-green: #b4d37c;
     --accent-teal: #85d2d0;
-    --bg-light-yellow: #fef9e7;
-    --bg-light-green: #f2f7ec;
-    --bg-light-teal: #eef8f8;
+    --bg-light-yellow: #f7dc7b;
+    --bg-light-green: #c6e4a1;
+    --bg-light-teal: #67c2c2;
     --bg-white: #ffffff;
     --border-color: #e0e0e0;
-    --banner-gradient: linear-gradient(90deg, #87d8d7 0%, #00c2c7 100%);
+    --banner-gradient: linear-gradient(90deg, #40c4ec 0%, #2cf1f8 100%);
 }
 
 * {
@@ -73,14 +73,26 @@ header .container {
     padding: 40px 0;
     text-align: left;
 }
-.banner-title-desktop { display: none; }
-.banner-title-mobile {
-    display: block;
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 10px;
+
+@media (min-width: 769px) {
+    .banner-title-desktop {
+        display: block;
+        font-size: 2.8rem;
+        font-weight: 700;
+        margin-bottom: 15px;
+        color: #003366;
+        white-space: normal;
+        line-height: 1.1;
+        max-width: 500px;
+        word-break: break-word;
+    }
+    .banner-title-mobile { display: none; }
 }
-.banner p { font-size: 0.9rem; font-weight: 400; }
+.banner p {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--text-light); 
+}
 
 /* --- Seção de Cards --- */
 .cards-section {
@@ -97,16 +109,25 @@ header .container {
     border: 1px solid var(--border-color);
 }
 
-.card-yellow { border-top: 4px solid var(--accent-yellow); }
-.card-green { border-top: 4px solid var(--accent-green); }
-.card-teal { border-top: 4px solid var(--accent-teal); }
+.card-yellow { 
+    border-top: 4px solid var(--accent-yellow); 
+    background-color: var(--bg-light-yellow); 
+}
+.card-green { 
+    border-top: 4px solid var(--accent-green); 
+    background-color: var(--bg-light-green); 
+}
+.card-teal { 
+    border-top: 4px solid var(--accent-teal); 
+    background-color: var(--bg-light-teal); 
+}
 
-.card-text { flex-basis: 70%; }
+.card-text { flex-basis: 70%; } 
 .card-text h2 { font-size: 1rem; font-weight: 700; color: var(--text-dark); margin-bottom: 5px; }
 .card-text p { font-size: 0.8rem; line-height: 1.5; }
 
 .card-icon {
-    flex-basis: 30%;
+    flex-basis: 30%; 
     text-align: right;
     font-size: 1.8rem;
     color: var(--text-light);
@@ -136,27 +157,30 @@ footer a {
 }
 
 /* --- TABLET (481px a 768px) --- */
-/* Esta seção permanece a mesma. */
+/* O layout do tablet é quase idêntico ao do mobile, apenas com mais respiro. */
 @media (min-width: 481px) {
     .container {
         width: 85%;
     }
     .logo-mobile { font-size: 1.8rem; }
-    .banner-title-mobile { font-size: 1.8rem; }
+    .banner-title-mobile {
+        display: none; 
+    }
+    .banner p {
+        color: var(--text-light); 
+    }
 }
 
-/* --- DESKTOP E WIDESCREEN (ACIMA DE 768px) --- */
-/* FOCO AQUI: Ajustes aprimorados para telas largas. */
+/* --- DESKTOP (ACIMA DE 768px) --- */
+/* Mudanças significativas para o layout de desktop. */
 @media (min-width: 769px) {
     .container {
-        /* Aumento da largura máxima para preencher melhor telas widescreen. */
-        width: 90%;
-        max-width: 1280px; 
+        width: 85%;
+        max-width: 1100px;
     }
 
     /* Cabeçalho Desktop */
     header {
-        /* Mais preenchimento vertical para um cabeçalho mais imponente. */
         padding: 20px 0;
     }
     .logo-desktop { display: block; }
@@ -167,99 +191,97 @@ footer a {
     .main-nav ul {
         display: flex;
         list-style: none;
-        /* Aumento do espaçamento entre os itens de menu. */
-        gap: 35px; 
+        gap: 15px;
     }
     .main-nav a {
         text-decoration: none;
         color: var(--text-light);
         font-weight: 500;
-        /* Fonte ligeiramente maior para melhor legibilidade. */
-        font-size: 1rem; 
-        transition: color 0.2s;
+        font-size: 0.9rem;
     }
-    .main-nav a:hover {
-        color: var(--text-dark);
-    }
+    /* Adiciona o separador "|" via CSS */
     .main-nav li:not(:first-child)::before {
         content: '|';
         color: var(--border-color);
-        margin-right: 35px;
+        margin-right: 15px;
     }
 
     /* Banner Desktop */
     .banner {
-        /* Padding vertical aumentado para um visual mais dramático. */
-        padding: 100px 0;
+        padding: 80px 0;
     }
     .banner-title-desktop {
         display: block;
-        /* Título do banner maior. */
-        font-size: 3.5rem; 
+        font-size: 2.8rem;
         font-weight: 700;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
+        color: #003366;
+        white-space: normal;
+        line-height: 1.1;
+        max-width: 500px;
+        word-break: break-word;
+    }
+    
+    .banner-title-desktop {
+        max-width: 500px; 
     }
     .banner-title-mobile { display: none; }
     .banner p {
-        font-size: 1.1rem; 
-        max-width: 60%; 
+        font-size: 1rem;
+        max-width: 55%;
+        color: var(--text-light); 
     }
 
     /* Cards Desktop */
     .cards-section {
-        /* Mais espaçamento vertical para a seção. */
-        padding: 60px 0;
+        padding: 40px 0;
         background-color: var(--bg-white);
     }
     .cards-section .container {
         display: flex;
-        /* Gap maior entre os cards. */
-        gap: 30px;
+        gap: 20px;
     }
     .card {
         flex: 1;
         flex-direction: column;
-        align-items: flex-start;
-        /* Padding maior dentro dos cards. */
-        padding: 30px; 
+        align-items: flex-start; 
+        padding: 25px;
         border: 1px solid var(--border-color);
-        border-top: none;
-        transition: transform 0.3s, box-shadow 0.3s;
+        border-top: none; 
     }
-    .card:hover {
-        /* Efeito sutil de elevação no hover para interatividade. */
-        transform: translateY(-10px);
-        box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-    }
-    .card-yellow { background-color: var(--bg-light-yellow); }
-    .card-green { background-color: var(--bg-light-green); }
-    .card-teal { background-color: var(--bg-light-teal); }
     
-    .card-text h2 {
-        font-size: 1.25rem;
-    }
-    .card-text p {
-        font-size: 0.9rem;
-    }
-
     .card-icon {
         text-align: left;
-        margin-top: 25px;
-        font-size: 2.5rem;
+        margin-top: 20px;
+        font-size: 2.2rem;
     }
-    .card-icon .fa-tablet-alt { display: inline-block; margin-left: 10px; }
+    .card-icon .fa-tablet-alt { display: inline-block; margin-left: 8px; }
 
     /* Rodapé Desktop */
-    footer {
-        padding: 30px 0;
-    }
-    .footer-nav li {
-        font-size: 0.9rem;
-        padding: 0 15px;
-    }
+    .footer-nav li { font-size: 0.8rem; padding: 0 10px; }
     .footer-nav li:not(:first-child)::before {
         content: '|';
         color: var(--border-color);
-        margin-right: 30px;
+        margin-right: 20px;
+    }
+}
+
+.banner-title-mobile {
+    display: block; 
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #003366;
+}
+
+@media (min-width: 481px) {
+    .banner-title-mobile {
+        font-size: 1.8rem;
+    }
+}
+
+@media (min-width: 769px) {
+    .banner-title-mobile {
+        display: none;
     }
 }
